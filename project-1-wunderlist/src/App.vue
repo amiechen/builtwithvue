@@ -1,16 +1,19 @@
 <template>
-  <div id="app" class="w-full m-0 p-0 bg-blue-darker min-h-screen">
+  <div id="app" class="flex w-full m-0 p-0 bg-blue-darker min-h-screen">
     <Sidepanel class="flex flex-col w-64 bg-grey-lighter min-h-screen"/>
+    <Content class="flex flex-1"/>
   </div>
 </template>
 
 <script>
 import Sidepanel from "./components/Sidepanel.vue";
+import Content from "./components/Content.vue";
 
 export default {
   name: "app",
   components: {
-    Sidepanel
+    Sidepanel,
+    Content
   }
 };
 </script>

@@ -12,9 +12,6 @@ export default {
   components: {
     Account,
     Lists
-  },
-  data() {
-    return {};
   }
 };
 </script>

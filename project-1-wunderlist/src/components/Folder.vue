@@ -10,17 +10,3 @@
   </div>
 </template>
 
-<script>
-import List from "./List.vue";
-
-export default {
-  components: {
-    List
-  },
-  data() {
-    return {
-      lists: 3
-    };
-  }
-};
-</script>
