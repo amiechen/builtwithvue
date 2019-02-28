@@ -21,6 +21,7 @@
       <input
         class="font-light text-white bg-indigo-darkest p-2 w-full focus:outline-none"
         placeholder="Add a todo..."
+        @keyup.enter="addTodo($event.target.value)"
       >
     </div>
     <Todo
@@ -39,13 +40,14 @@ export default {
   components: {
     Todo
   },
-  data() {
-    return {
-      items: [
-        { id: 1, title: "buy milk", status: false },
-        { id: 2, title: "read a book", status: false }
-      ]
-    };
+  methods: {
+    addTodo: function(title) {
+      this.$route.query.todos.push({
+        id: this.$route.query.todos.length + 1,
+        title: title,
+        status: false
+      });
+    }
   }
 };
 </script>
