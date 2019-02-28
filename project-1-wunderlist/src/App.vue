@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="flex w-full m-0 p-0 bg-indigo-darker min-h-screen">
+  <div id="app" class="flex w-full m-0 p-0 bg-indigo-darker min-h-screen font-sans">
     <Sidepanel class="flex flex-col w-64 bg-grey-lighter min-h-screen"/>
     <Content class="flex flex-1 p-4 flex-col"/>
   </div>

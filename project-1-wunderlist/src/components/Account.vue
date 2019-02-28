@@ -1,7 +1,7 @@
 <template>
-  <div class="flex items-center text-white font-hairline p-2">
+  <div class="flex items-center text-white p-2">
     <img :src="user.avatar" alt="user-avatar" class="w-8 h-8 rounded-full mr-3">
-    <label class="text-sm text-black leading-none">{{user.email}}</label>
+    <label class="font-light text-black leading-none">{{user.email}}</label>
   </div>
 </template>
 <script>
