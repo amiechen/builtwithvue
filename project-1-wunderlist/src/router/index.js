@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Todo from "../components/Todo.vue";
+import Todos from "../components/Todos.vue";
 
-const routes = [{ path: "/list/:id", component: Todo }];
+const routes = [{ path: "/list/:id", component: Todos }];
 
 export default new VueRouter({
   routes: routes
