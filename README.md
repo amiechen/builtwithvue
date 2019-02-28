@@ -5,6 +5,7 @@ A list of real-life projects built with Vue, TailwindCSS and MySQL. An exercise 
 ### Project List
 
 - project 1: Wunderlist Clone
+  - vue-router, components, attributes, methods, differences between to and :to in vue-router
 - project 2: Google Reader Clone
 - project 3: Dribbble Clone
 - project 4: Trello Clone

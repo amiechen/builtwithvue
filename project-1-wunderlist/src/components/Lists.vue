@@ -2,7 +2,7 @@
   <div class="justify-between">
     <div>
       <router-link
-        :to="`/list/${list.id}`"
+        :to="{path:`/list/${list.id}`, query:{ todos: list.todos}}"
         v-for="list in lists"
         v-bind:key="list.index"
         class="no-underline text-black"
@@ -28,7 +28,7 @@
                 </g>
               </g>
             </svg>
-            <p class="font-light">list name</p>
+            <p>{{list.name}}</p>
           </div>
           <p class="text-xs text-grey font-light">3</p>
         </div>
@@ -36,7 +36,7 @@
     </div>
     <Folder v-for="folder in folders" v-bind:key="folder.id"/>
     <div
-      class="flex items-center border-t border-grey-light px-3 py-4 fixed pin-b w-64 text-blue"
+      class="flex items-center border-t border-grey-light px-3 py-4 fixed pin-b w-64 text-blue hover:cursor-pointer"
       v-on:click="createList()"
     >
       <svg
@@ -56,7 +56,7 @@
           ></path>
         </g>
       </svg>
-      <p class="font-light text-sm">Create List</p>
+      <p class="text-sm">Create List</p>
     </div>
   </div>
 </template>
@@ -79,9 +79,30 @@ export default {
   data() {
     return {
       lists: [
-        { id: 1, name: "grocery" },
-        { id: 2, name: "books" },
-        { id: 3, name: "wishlists" }
+        {
+          id: 1,
+          name: "grocery",
+          todos: [
+            { id: 1, title: "milk", status: false },
+            { id: 2, title: "tumeric", status: false }
+          ]
+        },
+        {
+          id: 2,
+          name: "books",
+          todos: [
+            { id: 1, title: "poor charlie's almanec", status: false },
+            { id: 2, title: "deep work", status: false }
+          ]
+        },
+        {
+          id: 3,
+          name: "wishlists",
+          todos: [
+            { id: 1, title: "jellybeana", status: false },
+            { id: 2, title: "play some boardgame", status: false }
+          ]
+        }
       ],
       folders: []
     };

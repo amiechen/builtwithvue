@@ -24,8 +24,8 @@
       >
     </div>
     <Todo
-      class="bg-grey-lighter text-black font-light flex rounded mb-1 px-3 py-2"
-      v-for="item in items"
+      class="bg-grey-lighter text-black font-normal flex rounded mb-1 px-3 py-2"
+      v-for="item in this.$route.query.todos"
       v-bind:key="item.id"
       :title="item.title"
       :status="item.status"
