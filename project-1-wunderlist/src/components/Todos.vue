@@ -26,7 +26,7 @@
     </div>
     <Todo
       class="bg-grey-lighter text-black font-normal flex rounded mb-1 px-3 py-2"
-      v-for="item in this.$route.query.todos"
+      v-for="item in this.$route.params.todos"
       v-bind:key="item.id"
       :title="item.title"
       :status="item.status"
@@ -40,10 +40,15 @@ export default {
   components: {
     Todo
   },
+  watch: {
+    "$route.params.todos": function() {
+      this.$forceUpdate(); //there must be a better way
+    }
+  },
   methods: {
     addTodo: function(title) {
-      this.$route.query.todos.push({
-        id: this.$route.query.todos.length + 1,
+      this.$route.params.todos.push({
+        id: this.$route.params.todos.length + 1,
         title: title,
         status: false
       });

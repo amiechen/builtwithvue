@@ -2,8 +2,8 @@
   <div class="justify-between">
     <div>
       <router-link
-        :to="{path:`/list/${list.id}`, query:{ todos: list.todos}}"
-        v-for="list in lists"
+        :to="{name: 'todos', params:{ id: list.id, todos: list.todos}}"
+        v-for="list in $globalData.lists"
         v-bind:key="list.index"
         class="no-underline text-black"
       >
@@ -34,7 +34,7 @@
         </div>
       </router-link>
     </div>
-    <Folder v-for="folder in folders" v-bind:key="folder.id"/>
+    <!-- <Folder v-for="folder in folders" v-bind:key="folder.id"/> -->
     <div
       class="flex items-center border-t border-grey-light px-3 py-4 fixed pin-b w-64 text-blue hover:cursor-pointer"
       v-on:click="createList()"
@@ -62,50 +62,20 @@
 </template>
 
 <script>
-import Folder from "./Folder.vue";
+// import Folder from "./Folder.vue";
 
 export default {
-  components: {
-    Folder
-  },
+  components: {},
   methods: {
     createList: function() {
-      this.lists.push({
-        id: this.lists.length + 1,
+      this.$globalData.lists.push({
+        id: this.$globalData.lists.length + 1,
         name: ""
       });
     }
   },
   data() {
-    return {
-      lists: [
-        {
-          id: 1,
-          name: "grocery",
-          todos: [
-            { id: 1, title: "milk", status: false },
-            { id: 2, title: "tumeric", status: false }
-          ]
-        },
-        {
-          id: 2,
-          name: "books",
-          todos: [
-            { id: 1, title: "poor charlie's almanec", status: false },
-            { id: 2, title: "deep work", status: false }
-          ]
-        },
-        {
-          id: 3,
-          name: "wishlists",
-          todos: [
-            { id: 1, title: "jellybeana", status: false },
-            { id: 2, title: "play some boardgame", status: false }
-          ]
-        }
-      ],
-      folders: []
-    };
+    return {};
   }
 };
 </script>
