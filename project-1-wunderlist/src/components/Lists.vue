@@ -37,7 +37,7 @@
     <!-- <Folder v-for="folder in folders" v-bind:key="folder.id"/> -->
     <div
       class="flex items-center border-t border-grey-light px-3 py-4 fixed pin-b w-64 text-blue hover:cursor-pointer"
-      v-on:click="createList()"
+      @click="showModal = true"
     >
       <svg
         class="mr-1 h-5 w-5"
@@ -58,20 +58,31 @@
       </svg>
       <p class="text-sm">Create List</p>
     </div>
+    <Modal v-if="showModal" @close="showModal = false">
+      <!--
+      you can use custom content here to overwrite
+      default content
+      -->
+      <h3 slot="header">custom header</h3>
+    </Modal>
   </div>
 </template>
 
 <script>
 // import Folder from "./Folder.vue";
 import ListStore from "../stores/ListStore";
+import Modal from "./Modal.vue";
 
 export default {
   data: function() {
     return {
-      ListStore: ListStore.data
+      ListStore: ListStore.data,
+      showModal: false
     };
   },
-  components: {},
+  components: {
+    Modal
+  },
   methods: {
     createList: function() {
       this.ListStore.lists.push({
