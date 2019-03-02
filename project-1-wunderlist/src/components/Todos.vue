@@ -42,7 +42,7 @@ export default {
   data: function() {
     return {
       newTodo: null,
-      ListStore: ListStore.data
+      ListStore: ListStore
     };
   },
   components: {
@@ -51,7 +51,7 @@ export default {
   methods: {
     addTodo: function(title) {
       const listIndex = this.$route.params.id - 1;
-      ListStore.methods.addTodo(title, listIndex);
+      this.ListStore.methods.addTodo(title, listIndex);
       this.newTodo = null;
     }
   }
