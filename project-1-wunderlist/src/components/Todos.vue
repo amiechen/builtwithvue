@@ -21,6 +21,7 @@
       <input
         class="font-light text-white bg-indigo-darkest p-2 w-full focus:outline-none"
         placeholder="Add a todo..."
+        v-model="newTodo"
         @keyup.enter="addTodo($event.target.value)"
       >
     </div>
@@ -38,24 +39,20 @@ import Todo from "./Todo.vue";
 import ListStore from "../stores/ListStore";
 
 export default {
+  data: function() {
+    return {
+      newTodo: null,
+      ListStore: ListStore.data
+    };
+  },
   components: {
     Todo
   },
-  watch: {
-    "$route.params.todos": function() {
-      this.$forceUpdate(); //there must be a better way
-    }
-  },
   methods: {
     addTodo: function(title) {
-      const currentTodos =
-        ListStore.data.lists[this.$route.params.id - 1].todos;
-
-      currentTodos.push({
-        id: currentTodos.length + 1,
-        title: title,
-        status: false
-      });
+      const listIndex = this.$route.params.id - 1;
+      ListStore.methods.addTodo(title, listIndex);
+      this.newTodo = null;
     }
   }
 };

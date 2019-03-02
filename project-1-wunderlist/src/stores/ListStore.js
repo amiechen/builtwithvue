@@ -25,7 +25,16 @@ const ListStore = {
       }
     ]
   },
-  methods: {}
+  methods: {
+    addTodo: function(title, listIndex) {
+      const selectedTodos = ListStore.data.lists[listIndex].todos;
+      selectedTodos.push({
+        id: selectedTodos.length + 1,
+        title: title,
+        status: false
+      });
+    }
+  }
 };
 
 export default ListStore;

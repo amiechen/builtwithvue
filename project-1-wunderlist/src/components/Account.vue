@@ -1,8 +1,8 @@
 <template>
-  <div class="flex items-center text-white p-2">
+  <a href="/" class="flex items-center text-white p-2 block">
     <img :src="user.avatar" alt="user-avatar" class="w-8 h-8 rounded-full mr-3">
     <label class="text-black leading-none">{{user.email}}</label>
-  </div>
+  </a>
 </template>
 <script>
 export default {

@@ -3,7 +3,7 @@
     <div>
       <router-link
         :to="{name: 'todos', params:{ id: list.id, todos: list.todos}}"
-        v-for="list in listStore"
+        v-for="list in ListStore.lists"
         v-bind:key="list.index"
         class="no-underline text-black block"
       >
@@ -66,19 +66,20 @@
 import ListStore from "../stores/ListStore";
 
 export default {
+  data: function() {
+    return {
+      ListStore: ListStore.data
+    };
+  },
   components: {},
   methods: {
     createList: function() {
-      ListStore.data.lists.push({
-        id: ListStore.data.lists.length + 1,
-        name: ""
+      this.ListStore.lists.push({
+        id: this.ListStore.lists.length + 1,
+        name: "",
+        todos: []
       });
     }
-  },
-  data() {
-    return {
-      listStore: ListStore.data.lists
-    };
   }
 };
 </script>
