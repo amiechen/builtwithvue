@@ -3,9 +3,9 @@
     <div>
       <router-link
         :to="{name: 'todos', params:{ id: list.id, todos: list.todos}}"
-        v-for="list in $globalData.lists"
+        v-for="list in listStore"
         v-bind:key="list.index"
-        class="no-underline text-black"
+        class="no-underline text-black block"
       >
         <div class="flex px-3 py-2 justify-between items-center">
           <div class="flex items-center">
@@ -30,7 +30,7 @@
             </svg>
             <p>{{list.name}}</p>
           </div>
-          <p class="text-xs text-grey font-light">3</p>
+          <p class="text-xs text-grey font-light">{{list.todos.length}}</p>
         </div>
       </router-link>
     </div>
@@ -63,19 +63,22 @@
 
 <script>
 // import Folder from "./Folder.vue";
+import ListStore from "../stores/ListStore";
 
 export default {
   components: {},
   methods: {
     createList: function() {
-      this.$globalData.lists.push({
-        id: this.$globalData.lists.length + 1,
+      ListStore.data.lists.push({
+        id: ListStore.data.lists.length + 1,
         name: ""
       });
     }
   },
   data() {
-    return {};
+    return {
+      listStore: ListStore.data.lists
+    };
   }
 };
 </script>

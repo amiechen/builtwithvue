@@ -35,6 +35,7 @@
 </template>
 <script>
 import Todo from "./Todo.vue";
+import ListStore from "../stores/ListStore";
 
 export default {
   components: {
@@ -47,8 +48,11 @@ export default {
   },
   methods: {
     addTodo: function(title) {
-      this.$route.params.todos.push({
-        id: this.$route.params.todos.length + 1,
+      const currentTodos =
+        ListStore.data.lists[this.$route.params.id - 1].todos;
+
+      currentTodos.push({
+        id: currentTodos.length + 1,
         title: title,
         status: false
       });
