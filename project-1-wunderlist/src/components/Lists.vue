@@ -59,11 +59,24 @@
       <p class="text-sm">Create List</p>
     </div>
     <Modal v-if="showModal" @close="showModal = false">
-      <!--
-      you can use custom content here to overwrite
-      default content
-      -->
-      <h3 slot="header">custom header</h3>
+      <h3 slot="header">Create New List</h3>
+      <input
+        slot="body"
+        type="text"
+        placeholder="List Name"
+        v-model="newListName"
+        class="border border-grey-light p-2 py-3 rounded w-full focus:border-blue-light focus:outline-none"
+      >
+      <div slot="footer">
+        <button
+          class="border border-grey font-bold text-sm text-grey-dark py-2 px-5 rounded mr-2"
+          @click="$parent.$emit('close')"
+        >Cancel</button>
+        <button
+          class="bg-blue hover:bg-blue-dark text-sm text-white font-bold py-2 px-5 rounded"
+          @click="createList"
+        >Save</button>
+      </div>
     </Modal>
   </div>
 </template>
@@ -77,6 +90,7 @@ export default {
   data: function() {
     return {
       ListStore: ListStore.data,
+      newListName: null,
       showModal: false
     };
   },
@@ -87,9 +101,10 @@ export default {
     createList: function() {
       this.ListStore.lists.push({
         id: this.ListStore.lists.length + 1,
-        name: "",
+        name: this.newListName,
         todos: []
       });
+      this.$parent.$emit("close");
     }
   }
 };

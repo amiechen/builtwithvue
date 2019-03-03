@@ -1,32 +1,15 @@
 <template>
   <transition name="modal">
     <div class="fixed z-50 pin overflow-auto bg-grey-darkest-half">
-      <div class="shadow-inner relative m-auto mt-32 bg-white rounded w-72">
+      <div class="shadow-inner relative m-auto mt-32 bg-white rounded w-72 text-sm">
         <div class="text-center px-4 pt-4">
-          <slot name="header">Create New List</slot>
+          <slot name="header">header</slot>
         </div>
-
         <div class="p-4">
-          <slot name="body">
-            <input
-              type="text"
-              placeholder="List Name"
-              class="border border-grey-light p-2 rounded w-full"
-            >
-          </slot>
+          <slot name="body"></slot>
         </div>
-
-        <div class="p-4 flex border border-t justify-end rounded-b">
-          <slot name="footer">
-            <button
-              class="border border-grey font-bold text-sm py-2 px-4 rounded mr-2"
-              @click="$emit('close')"
-            >Cancel</button>
-            <button
-              class="bg-blue hover:bg-blue-dark text-sm text-white font-bold py-2 px-4 rounded"
-              @click="$emit('close')"
-            >Save</button>
-          </slot>
+        <div class="px-4 py-3 flex border border-t justify-end rounded-b">
+          <slot name="footer"></slot>
         </div>
       </div>
     </div>
