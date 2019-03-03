@@ -5,7 +5,7 @@ A list of real-life projects built with Vue, TailwindCSS and MySQL. An exercise 
 ### Project List
 
 - project 1: Wunderlist Clone
-  - vue-router, components, attributes, methods, simplified store
+  - vue-router, components, attributes, methods, simplified store like vuex, slots, events, fetchData before navigation in vue-router
   - how to make sure vue re-render when data changed? store
   - Where should I store my data? top level App.vue? no, use a store
 - project 2: Google Reader Clone

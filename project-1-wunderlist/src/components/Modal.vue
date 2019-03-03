@@ -10,6 +10,7 @@
             type="text"
             placeholder="List Name"
             v-model="newListName"
+            @keyup.enter="createList"
             class="border border-grey-light p-2 py-3 rounded w-full focus:border-blue-light focus:outline-none"
           >
         </div>

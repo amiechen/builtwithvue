@@ -48,7 +48,18 @@ export default {
   components: {
     Todo
   },
+  created() {
+    this.fetchData();
+  },
   methods: {
+    fetchData: function() {
+      try {
+        const listIndex = this.$route.params.id - 1;
+        this.$route.params.todos = ListStore.data.lists[listIndex].todos;
+      } catch (error) {
+        alert("your list doesn't exist", error);
+      }
+    },
     addTodo: function(title) {
       const listIndex = this.$route.params.id - 1;
       this.ListStore.methods.addTodo(title, listIndex);
