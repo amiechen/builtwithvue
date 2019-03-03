@@ -3,13 +3,25 @@
     <div class="fixed z-50 pin overflow-auto bg-grey-darkest-half">
       <div class="shadow-inner relative m-auto mt-32 bg-white rounded w-72 text-sm">
         <div class="text-center px-4 pt-4">
-          <slot name="header">header</slot>
+          <h3 slot="header">Create New List</h3>
         </div>
         <div class="p-4">
-          <slot name="body"></slot>
+          <input
+            type="text"
+            placeholder="List Name"
+            v-model="newListName"
+            class="border border-grey-light p-2 py-3 rounded w-full focus:border-blue-light focus:outline-none"
+          >
         </div>
         <div class="px-4 py-3 flex border border-t justify-end rounded-b">
-          <slot name="footer"></slot>
+          <button
+            class="border border-grey font-bold text-sm text-grey-dark py-2 px-5 rounded mr-2"
+            @click="$emit('close')"
+          >Cancel</button>
+          <button
+            class="bg-blue hover:bg-blue-dark text-sm text-white font-bold py-2 px-5 rounded"
+            @click="createList"
+          >Save</button>
         </div>
       </div>
     </div>
@@ -17,7 +29,26 @@
 </template>
 
 <script>
-export default {};
+import ListStore from "../stores/ListStore";
+
+export default {
+  data: function() {
+    return {
+      ListStore: ListStore.data,
+      newListName: null
+    };
+  },
+  methods: {
+    createList: function() {
+      this.ListStore.lists.push({
+        id: this.ListStore.lists.length + 1,
+        name: this.newListName,
+        todos: []
+      });
+      this.$emit("close");
+    }
+  }
+};
 </script>
 
 <style scoped>
