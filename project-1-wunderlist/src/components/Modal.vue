@@ -1,5 +1,5 @@
 <template>
-  <transition name="modal">
+  <transition name="fade">
     <div class="fixed z-50 pin overflow-auto bg-grey-darkest-half">
       <div class="shadow-inner relative m-auto mt-32 bg-white rounded w-72 text-sm">
         <div class="text-center px-4 pt-4">

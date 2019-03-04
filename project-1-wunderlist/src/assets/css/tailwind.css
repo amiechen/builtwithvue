@@ -1,4 +1,11 @@
 @import "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900";
 @tailwind preflight;
 @tailwind components;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 @tailwind utilities;

@@ -3,6 +3,7 @@
     <div class="flex items-center">
       <svg
         v-if="!status"
+        @click="$emit('updateTodoStatus', id)"
         class="mr-2 h-6"
         width="20px"
         height="20px"
@@ -22,6 +23,7 @@
       </svg>
       <svg
         v-if="status"
+        @click="$emit('updateTodoStatus', id)"
         class="mr-2 h-6"
         width="20px"
         height="20px"
@@ -64,6 +66,7 @@
 <script>
 export default {
   props: {
+    id: Number,
     title: String,
     status: Boolean
   }
