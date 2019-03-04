@@ -27,11 +27,25 @@
     </div>
     <Todo
       class="bg-grey-lighter text-black font-normal flex rounded mb-1 px-3 py-2"
-      v-for="item in this.$route.params.todos"
+      v-for="item in getIncompletedTodos()"
       v-bind:key="item.id"
       :title="item.title"
       :status="item.status"
     />
+    <button
+      @click="showCompletedTodos=!showCompletedTodos"
+      v-if="getCompletedTodos().length > 0"
+      class="focus:outline-none uppercase text-xs p-1 px-4 mt-5 bg-indigo-darkest text-white rounded self-start tracking-wide"
+    >show completed to-dos</button>
+    <div v-if="showCompletedTodos" class="mt-3">
+      <Todo
+        class="bg-grey-lighter text-black font-normal flex rounded mb-1 px-3 py-2 line-through opacity-50"
+        v-for="item in getCompletedTodos()"
+        v-bind:key="item.id"
+        :title="item.title"
+        :status="item.status"
+      />
+    </div>
   </div>
 </template>
 <script>
@@ -42,7 +56,8 @@ export default {
   data: function() {
     return {
       newTodo: null,
-      ListStore: ListStore
+      ListStore: ListStore,
+      showCompletedTodos: false
     };
   },
   components: {
@@ -64,6 +79,16 @@ export default {
       const listIndex = this.$route.params.id - 1;
       this.ListStore.methods.addTodo(title, listIndex);
       this.newTodo = null;
+    },
+    getIncompletedTodos: function() {
+      return this.$route.params.todos.filter(todo => {
+        return todo.status === false;
+      });
+    },
+    getCompletedTodos: function() {
+      return this.$route.params.todos.filter(todo => {
+        return todo.status === true;
+      });
     }
   }
 };
