@@ -21,5 +21,5 @@ Let's create a todo list with vue.js
 - Installation: `yarn install`
 - Compiles and hot-reloads for development: `yarn run serve`
 - Compiles and minifies for production: `yarn run build`
-- Run your tests: `yarn run test`
+- Run your unit tests: `yarn run test:unit`
 - Lints and fixes files: `yarn run lint`
