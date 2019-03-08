@@ -5,6 +5,6 @@ import Account from "@/components/Account.vue";
 describe("Account.vue", () => {
   it("contains user email", () => {
     const wrapper = shallowMount(Account);
-    expect(wrapper.find("label").text()).to.be.a("sallycantdance@gmail.com");
+    expect(wrapper.find("label").text()).to.equal("sallycantdance@gmail.com");
   });
 });
