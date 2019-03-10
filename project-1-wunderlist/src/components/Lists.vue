@@ -56,7 +56,7 @@
           ></path>
         </g>
       </svg>
-      <p class="text-sm">Create List</p>
+      <p class="text-sm" id="test-create-list">Create List</p>
     </div>
     <Modal v-if="showModal" @close="showModal = false"/>
   </div>
