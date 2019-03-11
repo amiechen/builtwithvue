@@ -31,7 +31,7 @@
             <p class="test-list-name">{{list.name}}</p>
           </div>
           <p
-            class="text-xs text-grey font-light test-list-count"
+            class="text-xs text-grey-dark font-light test-list-count"
           >{{getIncompletedTodosCount(list.todos).length}}</p>
         </div>
       </router-link>

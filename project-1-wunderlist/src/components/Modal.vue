@@ -21,6 +21,7 @@
           >Cancel</button>
           <button
             class="bg-blue hover:bg-blue-dark text-sm text-white font-bold py-2 px-5 rounded"
+            id="test-create-list"
             @click="createList"
           >Save</button>
         </div>
