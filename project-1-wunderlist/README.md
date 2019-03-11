@@ -1,6 +1,7 @@
 # Project 1: Wunderlist Clone
 
-[./src/assets/wunderlist-screenshot.png](https://youtu.be/Lw_b6m5H9Jk)
+[Demo](https://youtu.be/Lw_b6m5H9Jk)
+![screenshot](./src/assets/wunderlist-screenshot.png)
 
 ## Project setup
 
