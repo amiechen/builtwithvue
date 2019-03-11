@@ -1,18 +1,4 @@
-# project-1-todo
-
----
-
-## Tutorial
-
-Let's create a todo list with vue.js
-
-#### What you will learn
-
-#### Project Steps
-
-- [Project setup]()
-- [Middle Part]()
-- [Wrap up]()
+# Project 1: Wunderlist Clone
 
 ---
 
