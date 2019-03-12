@@ -12,7 +12,7 @@
 - Run your unit tests: `yarn run test:unit`
 - Lints and fixes files: `yarn run lint`
 
-## What I've used in this project (and learned)
+## What I've used and learned in this project
 
 - directives, components, props, computed, methods, attributes
 - slots, events, filters, toggle
